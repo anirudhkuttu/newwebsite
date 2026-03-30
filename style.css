@@ -6,28 +6,27 @@
 }
 
 body {
-  background: linear-gradient(to right, #00c896, #00e6a8);
+  background: linear-gradient(135deg, #00c9a7, #00f2fe);
+  color: #333;
 }
 
 /* NAVBAR */
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background: white;
+  padding: 20px 40px;
+  background: #fff;
 }
 
 .logo {
   font-weight: bold;
-  border: 2px solid black;
-  padding: 5px 10px;
-  border-radius: 50%;
+  font-size: 20px;
 }
 
 nav a {
-  margin: 0 10px;
+  margin-left: 20px;
   text-decoration: none;
-  color: black;
+  color: #333;
 }
 
 /* HERO */
@@ -38,76 +37,59 @@ nav a {
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: 2.5rem;
 }
 
-.hero p {
-  margin: 10px 0;
-}
-
-.btn {
-  display: inline-block;
+.hero button {
   margin-top: 20px;
   padding: 10px 20px;
+  border: none;
   background: black;
   color: white;
-  text-decoration: none;
+  cursor: pointer;
 }
 
-/* SECTIONS */
-.section {
+/* CONTENT */
+.content {
   padding: 50px 20px;
   text-align: center;
-  background: white;
-}
-
-.section.light {
-  background: #f9f9f9;
 }
 
 .cards {
   display: flex;
   gap: 20px;
-  justify-content: center;
+  margin-top: 30px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
 }
 
 .card {
-  background: white;
+  background: #fff;
   padding: 20px;
   width: 280px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card a {
-  display: block;
-  margin-top: 10px;
-  color: green;
+  border-radius: 10px;
 }
 
 /* FEEDBACK */
 .feedback {
-  text-align: center;
+  background: #00c9a7;
   padding: 50px 20px;
-  background: #00e6a8;
+  text-align: center;
 }
 
 .feedback form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: auto;
+  margin-top: 20px;
 }
 
 .feedback input,
 .feedback textarea {
-  margin: 10px 0;
+  width: 250px;
   padding: 10px;
+  margin: 10px;
 }
 
 .feedback button {
-  padding: 10px;
+  padding: 10px 20px;
   background: black;
   color: white;
   border: none;
@@ -117,17 +99,13 @@ nav a {
 footer {
   text-align: center;
   padding: 20px;
-  background: white;
+  background: #fff;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media(max-width: 768px) {
   .cards {
     flex-direction: column;
     align-items: center;
-  }
-
-  .hero h1 {
-    font-size: 26px;
   }
 }
