@@ -91,18 +91,59 @@
   <h2>Send Feedback</h2>
   <p>I’d love to hear your thoughts!</p>
 
-  <form action="https://formspree.io/f/xpwzvgjo" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Feedback" required></textarea>
-    <button type="submit">Send Feedback</button>
-  </form>
+  <form id="feedbackForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Feedback" required></textarea>
+  <button type="submit">Send Feedback</button>
+</form>
+
+<p id="successMsg" style="display:none; color:black; margin-top:10px;">
+  ✅ Thanks for your feedback!
+</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Anirudh Jayaram</p>
 </footer>
+
+<script>
+const form = document.getElementById("feedbackForm");
+const successMsg = document.getElementById("successMsg");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
+
+  try {
+    const res = await fetch("/api/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      successMsg.style.display = "block";
+      form.reset();
+    } else {
+      alert("Error sending feedback");
+    }
+
+  } catch (error) {
+    alert("Server error");
+  }
+});
+</script>
 
 </body>
 </html>
